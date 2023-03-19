@@ -1,0 +1,108 @@
+#define MAX 5
+#include <stdio.h>
+
+
+
+int push(int[],int);
+int pop(int[],int);
+void display(int[],int);
+void peek(int[],int);
+
+
+int main() {
+  
+int stack[MAX];
+int choice, top=-1;
+
+printf("Welcome to the stack  \n press 1 for pop; \n press 2 for pop; \n press 3 for display; \n press 4 for peek; \n press 5 for exit: \n");
+ do
+    {
+        printf("\n Enter the Choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            {
+                top=push(stack,top);
+                break;
+            }
+            case 2:
+            {
+                top=pop(stack,top);
+                break;
+            }
+            case 3:
+            {
+                display(stack,top);
+                break;
+            }
+            case 4:
+            {
+                peek(stack,top);
+                break;
+            }
+            case 5:
+            {
+                printf("EXITED");
+            }
+            default:
+            {
+                printf ("\n\t Please Enter a Valid Choice(1/2/3/4)");
+            }
+                
+        }
+        
+    }
+    while(choice!=5);
+    return 0;
+}
+
+
+int push( int stack[],int top){
+    if(top==(MAX-1))
+    {
+        printf("stack is full");
+    }
+    else
+    {
+        int temp;
+        printf("enter the value: ");
+        scanf("%d",&temp);
+        top++;
+        stack[top]==temp;
+    }
+    return top;
+}
+
+int pop(int stack[], int top){
+    if(top==-1){
+        printf("stack is empty");
+    }
+    else{
+        top--;
+    }
+    return top;
+}
+
+void display(int stack[],int top){
+    int temp=top;
+    if(top==-1){
+        printf("stack is empty");
+    }
+    else{
+        while(temp!=-1)
+        {
+            printf("%d \n",stack[temp]);
+            temp--;
+        }
+    }
+}
+
+void peek(int stack[],int top){
+     if(top==-1){
+        printf("stack is empty");
+    }
+    else{
+        printf("%d",stack[top]);
+    }
+}
